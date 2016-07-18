@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "Simple starter package for Redux with React and Babel support",
   "main": "index.js",
+  "engines": {
+    "npm": "2.15.8",
+    "node": "4.4.7"
+  },
   "scripts": {
     "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "postinstall": "webpack -p",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "webpack -p"
   },
   "author": "",
   "license": "ISC",
