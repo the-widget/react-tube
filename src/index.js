@@ -35,7 +35,7 @@ class App extends Component {
     return (
       <div className="container">
         <div className="header clearfix">
-          <h1 className="title text-muted">Cat Tube</h1> 
+          <h1 className="title text-muted">Google Cat</h1> 
         </div>
         <div>
           <SearchBar onSearchTermChange={videoSearch}/>
