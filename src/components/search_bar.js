@@ -9,8 +9,10 @@ class SearchBar extends Component {
 
   render() { 
     return (
-      <div className="search-bar">
+      <div className="search-bar input-group input-group-lg">
         <input 
+          placeholder="Search for anything and it will relate your search term with cats! Example: try 'muffin'"
+          className="form-control"
           value={this.state.term}
           onChange= {event => {this.onInputChange(event.target.value)}} type='text' />
       </div>

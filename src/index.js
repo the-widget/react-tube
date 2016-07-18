@@ -5,9 +5,12 @@ import YouTubeSearch from 'youtube-api-search';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 import _ from 'lodash';
+
 const API_KEY = 'AIzaSyDCzZDGl_kXwKeAQDo4j3UDlLqsSESaZQE';
 
+
 class App extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,11 +18,11 @@ class App extends Component {
       selectedVideo: null
     };
 
-    this.videoSearch('cats');
+    this.videoSearch('cat');
   }
 
   videoSearch(term) {
-    YouTubeSearch({key: API_KEY, term: term}, (videos) => {
+    YouTubeSearch({key: API_KEY, term: 'cats '+ term}, (videos) => {
       this.setState({
         videos: videos,
         selectedVideo: videos[0]
@@ -30,13 +33,21 @@ class App extends Component {
   render(){
     const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
     return (
-      <div>
-        <SearchBar onSearchTermChange={videoSearch}/>
-        <VideoDetail video={this.state.selectedVideo} />
-        <VideoList 
-          onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-          videos={this.state.videos}/>
+      <div className="container">
+        <div className="header clearfix">
+          <h1 className="title text-muted">Cat Tube</h1> 
+        </div>
+        <div>
+          <SearchBar onSearchTermChange={videoSearch}/>
+          <VideoDetail video={this.state.selectedVideo} />
+          <VideoList 
+            onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+            videos={this.state.videos}/>
+          </div>
+        
+        
       </div>
+      
     );
   }
 }
